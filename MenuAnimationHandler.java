@@ -107,10 +107,6 @@ public abstract class MenuAnimationHandler {
                     menu.detachOverlayContainer();
                 }
             }
-            //menu.removeBackGroundView();
-            if(menu.getStateChangeListener()!=null){
-            	menu.getStateChangeListener().onMenuClosed(menu);
-            }
         }
     }
     
@@ -119,7 +115,10 @@ public abstract class MenuAnimationHandler {
      * Changes the animating property of children.
      */
     public class LastAnimationListener implements Animator.AnimatorListener {
-
+    	private ActionType actionType;
+    	public  LastAnimationListener(ActionType type) {
+			this.actionType = type;
+		}
         @Override
         public void onAnimationStart(Animator animation) {
             setAnimating(true);
@@ -128,6 +127,11 @@ public abstract class MenuAnimationHandler {
         @Override
         public void onAnimationEnd(Animator animation) {
             setAnimating(false);
+            if(menu.getStateChangeListener()!=null&&actionType==ActionType.CLOSING){
+            	menu.getStateChangeListener().onMenuClosed(menu);
+            }else{
+            	menu.getStateChangeListener().onMenuOpened(menu);
+            }
         }
 
         @Override

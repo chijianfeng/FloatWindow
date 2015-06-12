@@ -320,10 +320,7 @@ public class FloatActionButton extends FrameLayout implements ViewTreeObserver.O
     
     public void ChangeToHoverState(){
     	setResourcebyindex(2);
-    	
-    	Log.d(TAG , "Main View button is visiable : "+ contentView.getVisibility());
-    	Log.d(TAG , "contentView position: x = "+ ((FrameLayout.LayoutParams)contentView.getLayoutParams()).leftMargin + " y = "+
-    			((FrameLayout.LayoutParams)contentView.getLayoutParams()).topMargin);
+    	Log.d(TAG , "Chnage Float Window to Hover State");
     }
     
     public boolean onTouchEvent(MotionEvent event){

@@ -85,7 +85,7 @@ public class SlideAnimationHandler extends MenuAnimationHandler{
              animation.start();
     	 }
     	 if(lastAnimation != null) {
-              lastAnimation.addListener(new LastAnimationListener());
+              lastAnimation.addListener(new LastAnimationListener(ActionType.OPENING));
          }
     }
     
@@ -116,7 +116,7 @@ public class SlideAnimationHandler extends MenuAnimationHandler{
              animation.start();
          }
          if(lastAnimation != null) {
-             lastAnimation.addListener(new LastAnimationListener());
+             lastAnimation.addListener(new LastAnimationListener(ActionType.CLOSING));
          }
     }
     
